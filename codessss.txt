@@ -1,0 +1,20 @@
+class Array  {
+int arr[SIZE];
+const int size;
+
+public:
+Array(int =0);
+Array(int sz,int first);
+
+
+void fillArray(int first);
+void printArray();
+};
+
+After this :
+------------
+const number functions and const objects 
+mutable and ststic members 
+dynamic memory allocation in C++
+
+Introduction to Oparator overloading

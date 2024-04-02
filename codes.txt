@@ -1,0 +1,386 @@
+//structThree.cpp
+
+#include <iostream>
+
+using namespace std;
+
+
+struct Employee{
+    
+int id;
+    
+string 
+double salary;
+    
+void getDetails();
+    
+void printDetails();
+
+};
+
+
+
+int main() {
+    
+    
+Employee arr[5];
+    
+for (auto i=0; i<5; ++i)
+        
+arr[i].getDetails();
+        
+for (auto i=0; i<5; ++i)
+        
+arr[i].printDetails();
+        
+    
+return 0;
+
+}
+
+
+
+void Employee::getDetails(){
+    
+
+cout<<"Enter id , name, salary: ";
+    
+cin>>id>>name>>salary;
+    
+
+}
+
+
+
+void Employee::printDetails(){
+  
+  
+    
+cout<<"id: "<<id<<"\tname: "<<name<<"\tsalary: "<<salary<<endl;
+
+}
+
+
+//classone.cpp
+
+
+#include <iostream>
+
+using namespace std;
+
+
+
+class Employee{
+    
+int id;
+    
+string name;
+   
+double salary;
+    
+public:
+    
+void getDetails();
+    
+void printDetails();
+
+};
+
+
+int main() {
+    
+    
+Employee 
+//for (auto i=0; i<2; +
+obj.getDetails();
+        
+    
+//for (auto i=0; i<2; ++i)
+        
+obj.printDetails();
+        
+    
+//return 0;
+
+
+}
+
+
+
+void Employee::getDetails(){
+    
+cout<<"Enter id , name, salary: ";
+    
+cin>>id>>name>>salary;
+    
+
+
+}
+
+
+
+void Employee::printDetails(){
+ 
+   
+    
+cout<<"id: "<<id<<"\tname: "<<name<<"\tsalary: "<<salary<<endl;
+
+
+}
+
+//UsingArrays
+class Array{
+int arr [SIZE];
+int size;
+public:
+void initializeArr();
+}
+
+#include <iostream>
+
+using namespace std;
+
+#include <stdlib.h>
+
+
+
+#ifndef SIZE
+
+#define SIZE 100
+
+#endif
+
+
+
+class Array{
+    
+int arr[SIZE];
+    
+int size;
+    
+public:
+    
+void initializeArr();
+    
+void fillArray(int first);
+    
+void printArray();
+
+};
+
+
+
+int main() {
+    
+    
+Array obj;
+    
+obj.initializeArr();
+    
+obj.fillArray(101);
+    
+obj.printArray();
+   
+return 0;
+
+}
+
+
+
+void Array::initializeArr(){
+    
+cout<<"Enter size: (less than "<<SIZE<<"):";
+    
+cin>>size;
+    
+if(size>SIZE)
+        
+size=SIZE;
+
+}
+
+
+
+void Array::fillArray(int first){
+
+    
+for(auto i=0; i<size; ++i)
+        
+arr[i]=i+first;
+
+
+}
+
+
+
+void Array::printArray(){
+    
+cout<<"Arr: ";
+    
+for(auto i=0; i<size; ++i)
+        
+cout<<arr[i]<<" ";
+    
+cout<<endl;
+
+}
+
+//W/constructr
+
+
+#include <iostream>
+
+using namespace std;
+
+#include <stdlib.h>
+
+
+
+#ifndef SIZE  
+
+#define SIZE 100
+
+#endif
+
+
+class Array{
+    
+int arr[SIZE];
+    
+int size;
+    
+public:
+    
+//void initializeArr();
+    
+Array();
+    
+void fillArray(int first);
+    
+void printArray();
+
+};
+
+
+int main() {
+    
+    
+Array obj;
+    
+//obj.initializeArr();
+    
+obj.fillArray(101);
+    
+obj.printArray();
+    
+//Array b=a; //Copying constructor
+    
+//b.printArray();
+   
+// Array c=10;
+    
+//c.fillArray(100001);
+    
+//c.printArray();
+    
+//return 0;
+
+}
+
+
+Array::Array(){
+    
+cout<<"Enter size: (less than "<<SIZE<<"):";
+    
+cin>>size;
+   
+ 
+if(size>SIZE)
+        
+size=SIZE;
+
+}
+
+
+
+void Array::fillArray(int first){
+    
+for(auto i=0; i<size; ++i)
+        
+arr[i]=i+first;
+}
+
+void Array::printArray(){
+    
+cout<<"Arr: ";
+    
+for(auto i=0; i<size; ++i)
+        
+cout<<arr[i]<<" ";
+    
+cout<<endl;
+
+}
+
+
+//W/Constructor Copying
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
