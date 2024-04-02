@@ -1,4 +1,4 @@
-// dynamic memory allocation
+// dynamicmemoryallocation.cpp
 #include <iostream>
 using namespace std;
 
@@ -22,3 +22,74 @@ void createNFillArray(int sz, int first){
     
     delete []iPtr;
 }
+
+
+////ArrayUsingDynamic.cpp
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+class Array{
+    int *Arr;
+    const int size;
+    public:
+    Array(int =0);
+    Array(int sz, int first);
+    ~Array();
+    
+    void fillArray(int first);
+    void printArray();
+};
+
+int main() {
+    Array a(10);
+    a.fillArray(101);
+    a.printArray();
+    
+    Array b(100,1001);
+    b.printArray();
+}
+
+Array::Array(int sz):size(sz){
+    Arr=new int[size];
+}
+
+Array::Array(int sz, int first):size(sz){
+    Arr=new int[size];
+    fillArray(first);
+}
+
+Array::~Array(){
+    delete []Arr;
+}
+
+void Array::fillArray(int first){
+    for(int i=0; i<size; ++i)
+        Arr[i]=first+i;
+}
+
+void Array::printArray(){
+    cout<<"Array: ";
+    for(int i=0; i<size; ++i)
+        cout<<Arr[i]<<" ";
+    cout<<"\n";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
