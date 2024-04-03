@@ -89,6 +89,46 @@ int main() {
 }
 
 
+///////////////////////////////////////////////////////////////
+//LinkedListUsingClass
+//this code is not complete
+#include <iostream>
+using namespace std;
+
+class Node{
+    
+    public:
+    int data;
+    Node *next;
+    
+    Node(int val):data(val), next(nullptr); {}
+    
+};
+
+class LinkedList{
+    private:
+    Node *head=nullptr;
+    
+    public: 
+    LinkedList(): head(nullptr);
+    
+    void AddAtBeg(int val){
+        Node *New=new Node(val);
+        New->next=head;
+        head=New;
+    }
+    
+    void AddAtEnd(int val){
+        Node *New=new Node(val);
+        Node *ptr=head;
+        while(ptr!=nullptr){
+            ptr=ptr->next;
+        }
+        ptr->next=New;
+    }
+
+};
+
 
 
 
