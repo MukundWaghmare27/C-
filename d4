@@ -63,6 +63,32 @@ void Array::printArray(){
 }
 
 
+///////////////////////////////////////////////////////////
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+class simple{
+    int data;
+    public:
+    simple& getData(int x=10){
+        data=x;
+        return *this;
+    }
+    void printData(){
+        cout<<"Data: "<<data<<endl;
+    }
+};
+int main() {
+    
+   simple obj;
+   obj.getData(100).printData();
+
+    return 0;
+}
+
+
 
 
 
