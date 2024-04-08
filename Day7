@@ -104,7 +104,7 @@ User defined esceptions
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-//ExcptionSAfetyThree
+//ExcptionSAfety-UserDefined
 
 #include <iostream>
 using namespace std;
@@ -132,6 +132,133 @@ int main() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
+//ExcptionSAfetyTwo-UD
+
+#include <iostream>
+using namespace std;
+
+class MyException{
+    int num;
+    string mesg;
+    public:
+    MyException(int errNo, const char *msg):num(errNo),mesg(msg){
+        cout<<"constructor called"<<endl;
+    }
+    
+    void what(){
+        cout<<"num: "<<num<<"Type: "<<mesg<<endl;
+    }
+    
+    ~MyException(){
+        cout<<"Destruction Called__:"<<endl;
+    }
+};
+
+int main() {
+    try{
+       cout<<"Statement #1"<<endl;
+       throw MyException(404, "Resource Not Available");
+       cout<<"Statement #2"<<endl;
+    }catch(MyException &eobj){
+      eobj.what();
+    }
+    cout<<"Statement #3"<<endl;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//ExcptionSAfetyThree-UD
+
+#include <iostream>
+using namespace std;
+
+class MyException{
+    int num;
+    string mesg;
+    public:
+    MyException(int errNo, const char *msg):num(errNo),mesg(msg){
+        cout<<"constructor called"<<endl;
+    }
+    
+    void what(){
+        cout<<"num: "<<num<<"Type: "<<mesg<<endl;
+    }
+    
+    ~MyException(){
+        cout<<"Destruction Called__:"<<endl;
+    }
+};
+
+int main() {
+    try{
+       cout<<"Statement #1"<<endl;
+       throw new MyException(404, "Resource Not Available");
+       cout<<"Statement #2"<<endl;
+    }catch(MyException *eptr){
+      eptr->what();
+      delete eptr;
+    }
+    cout<<"Statement #3"<<endl;
+}
+
+/////////////////////////////////////////////////////////////////////////////
+//ExcptionSAfetyFour-UD
+
+#include <iostream>
+using namespace std;
+
+class ourException{
+    public:
+    virtual void what(){}
+};
+
+class yourException:public ourException {
+    int num;
+public:
+    yourException(int errNo):num(errNo){}
+    void what(){
+        cout<<"num: "<<num<<endl;
+    }
+};
+
+class MyException{
+    int num;
+    string mesg;
+    public:
+    MyException(int errNo, const char *msg):num(errNo),mesg(msg){ }
+    
+    void what(){
+        cout<<"num: "<<num<<"Type: "<<mesg<<endl;
+    }
+};
+
+int main() {
+    try{
+       cout<<"Statement #1"<<endl;
+       throw MyException(404, "Resource Not Available");
+       cout<<"Statement #2"<<endl;
+    }catch(MyException &eptr){
+      eptr.what();
+      //delete eptr;
+    }
+    cout<<"Statement #3"<<endl;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
