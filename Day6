@@ -1,0 +1,156 @@
+Exception safety classes / objects
+user defined exceptions
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+//ExcptionSafetyOne
+
+#include <iostream>
+using namespace std;
+
+class Test{
+    int data;
+public:
+  Test(int x=0):data(x){
+      cout<<"Test("<<x<<")\n"<<endl;
+      
+  }
+      ~Test(){
+          cout<<"~Test()"<<endl;
+      }
+  
+};
+
+int main() {
+    try{
+        cout<<"Statement #1"<<endl;
+        Test obj;
+        throw 10;
+        cout<<"Statement #2"<<endl;
+    }catch(int x){
+        cout<<"caught"<<x<<endl;
+    }
+    cout<<"Statement #3";
+}
+
+///////////////////////////////////////////////////////////////////////////////
+//ExcptionSAfetyTwo
+
+#include <iostream>
+using namespace std;
+
+class Test{
+    int data;
+public:
+      Test(int x=0):data(x){
+          cout<<"Test("<<x<<")\n"<<endl;
+          
+      }
+        ~Test(){
+            cout<<"~Test()"<<endl;
+      }
+      void disp(){
+          cout<<"Test::disp() "<<data<<endl;
+      }
+};
+
+class pointer{
+    Test *ptr;
+    public: 
+    pointer(int x=0):ptr(new Test(x)){}
+    ~pointer(){
+        delete ptr;
+    }
+    Test *operator->(){
+        return ptr;
+    }
+};
+
+void recur(int num){ //ptr class acts as wrapper
+    pointer obj(num);
+    obj->disp();
+    if(num<=5){
+        cout<<num<<" ";
+        recur(num+1);
+        cout<<num<<" ";
+    }
+    //delete ptr;
+    throw num;
+}
+
+int main() {
+    try{
+       recur(1);
+    }catch(int x){
+        cout<<"caught"<<x<<endl;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+
+Buile in Exception classes
+  There are two main categories of exception classes in c++:
+
+Logic Errors:
+  Are errors that can be detected by reading the code. For example, trying to divide by 
+
+
+
+User defined esceptions
+  hierarchy of user define esception classes
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+//ExcptionSAfetyThree
+
+#include <iostream>
+using namespace std;
+
+class MyException{
+    int num;
+    string mesg;
+    public:
+    MyException(int errNo, const char *msg):num(errNo),mesg(msg){}
+    
+    void what(){
+        cout<<"num: "<<num<<"Type: "<<mesg<<endl;
+    }
+};
+
+int main() {
+    try{
+       cout<<"Statement #1"<<endl;
+       throw MyException(404, "Resource Not Available");
+       cout<<"Statement #2"<<endl;
+    }catch(MyException eobj){
+      eobj.what();
+    } 
+    cout<<"Statement #3"<<endl;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
